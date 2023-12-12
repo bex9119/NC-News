@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import getAllArticles from "../api";
 import { Link } from "react-router-dom";
+import ArticleCard from "./ArticleCard";
 
 const ArticleHome = () => {
   const [articlesList, setArticlesList] = useState([]);
@@ -26,18 +27,7 @@ const ArticleHome = () => {
       return (
         <main>
           <h2>Newest</h2>
-          <ul>
-            {limitedArticles.map((article) => {
-              return (
-                <li key={article.article_id} className="articles">
-                  <h3>{article.title}</h3>
-                  <img src={article.article_img_url} alt="article image" />
-                  <p>{article.author}</p>
-                  <p>{article.topic}</p>
-                </li>
-              );
-            })}
-          </ul>
+          <ArticleCard multipleArticles={limitedArticles} />
           <Link to="/articles">
             <button>All Articles</button>
           </Link>
