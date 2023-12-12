@@ -11,4 +11,12 @@ const getAllArticles = () => {
     })
 }
 
+const getArticleComments = () => {
+  return newsApi.get('/articles/1/comments')
+    .then(({data}) => {
+    return data.comments
+  })
+}
+
 export default getAllArticles
+export {getArticleComments}

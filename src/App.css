@@ -59,12 +59,12 @@ ul {
   padding-left: 0px;
 }
 
-li {
+.articles li {
   padding: 0.5rem;
-  padding-bottom: 4rem;
+  /* padding-bottom: 4rem; */
   text-decoration: none;
   border-bottom: 2px solid black;
-  margin-bottom: 4rem;
+  /* margin-bottom: 4rem; */
 }
 
 .links {
@@ -90,3 +90,23 @@ button {
   margin-bottom: -3rem;
   bottom: 0;
 }
+
+.comment {
+  border: 2px solid red;
+  margin-top: 1rem;
+
+}
+
+#commentAuthor {
+  padding: 0.5rem;
+}
+
+#commentBody {
+  padding: 0.5rem;
+}
+
+#commentVote {
+  text-align: right;
+}
+
+

@@ -3,6 +3,7 @@ import CommentSharpIcon from "@mui/icons-material/CommentSharp";
 import CreateSharpIcon from "@mui/icons-material/CreateSharp";
 import TopicSharpIcon from "@mui/icons-material/TopicSharp";
 import Stack from "@mui/material/Stack";
+import CommentsList from "./CommentsList";
 
 const ArticleCard = ({ multipleArticles }) => {
   return (
@@ -30,6 +31,7 @@ const ArticleCard = ({ multipleArticles }) => {
                 <span> {article.votes}</span>
               </section>
             </Stack>
+            <CommentsList />
           </li>
         );
       })}
