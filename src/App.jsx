@@ -4,6 +4,7 @@ import ArticleHome from './Components/ArticleHome'
 import ArticlesList from './Components/ArticlesList'
 import Header from './Components/Header'
 import Nav from './Components/Nav'
+import IndividualArticle from './Components/IndividualArticle'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ArticleHome />} />
         <Route path="/articles" element={<ArticlesList />} />
+        <Route path="/articles/:article_id" element={<IndividualArticle/>} />
       </Routes>
     </>
   );

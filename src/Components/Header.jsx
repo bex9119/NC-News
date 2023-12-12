@@ -8,7 +8,7 @@ const Header = () => {
     <header>
       <h1>NC News</h1>
       <p>{user.username}</p>
-      <img src={user.avatar_url} />
+      <img className="userAvatar" src={user.avatar_url} />
     </header>
   );
 };
