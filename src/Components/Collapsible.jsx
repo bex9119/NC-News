@@ -4,11 +4,11 @@ const Collabsible = ({ children }) => {
     const [isHidden, setIsHidden] = useState(true)
 
     const toggleView = () => {
-        setIsHidden(false)
+        setIsHidden(!isHidden)
     }
     return <section>
         {isHidden ? null : children}
-        <button onClick={toggleView}>{isHidden ? "View" : "Hide" } Comments</button>
+        <button id='collapse' onClick={toggleView} >{isHidden ? "View" : "Hide" } Comments</button>
     </section>
 }
 

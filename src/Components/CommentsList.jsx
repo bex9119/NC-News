@@ -3,24 +3,30 @@ import { getArticleComments } from "../api"
 import CommentCard from "./CommentCard"
 import Collabsible from "./Collapsible";
 
-const CommentsList = () => {
-    const [commentsList, setCommentsList] = useState([])
+const CommentsList = ({article_id}) => {
+  const [commentsList, setCommentsList] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        getArticleComments().then((comments) => {
-            setCommentsList(comments)
+        getArticleComments(article_id).then((comments) => {
+          setCommentsList(comments)
+          setIsLoading(false)
         })
     }, [])
     
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
+  else {
     return (
       <>
         <Collabsible>
+          <h3>Comments:</h3>
           <CommentCard multipleComments={commentsList} />
         </Collabsible>
       </>
     );
+  }
 }
 
 export default CommentsList
-
-//after lunch show comments button

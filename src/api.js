@@ -17,8 +17,8 @@ const getIndividualArticle = (article_id) => {
   });
 };
 
-const getArticleComments = () => {
-  return newsApi.get('/articles/1/comments')
+const getArticleComments = (article_id) => {
+  return newsApi.get(`/articles/${article_id}/comments`)
     .then(({data}) => {
     return data.comments
   })

@@ -32,6 +32,11 @@ h2 {
   margin-bottom: 1rem;
 }
 
+h3 {
+  padding-top: 1rem;
+  margin-left: 3rem;
+  margin-bottom: -1rem;
+}
 main {
   border: 2px solid gold;
   margin: 3rem;
@@ -67,12 +72,12 @@ ul {
   padding-left: 0px;
 }
 
-.articles li {
+li {
   padding: 0.5rem;
-  /* padding-bottom: 4rem; */
+  padding-bottom: 4rem;
   text-decoration: none;
   border-bottom: 2px solid black;
-  /* margin-bottom: 4rem; */
+  margin-bottom: 4rem;
   margin-top: -1rem;
   padding-top:0
 }
@@ -83,11 +88,14 @@ ul {
 }
 
 button {
+  display: flex;
   padding: 0.75rem;
+  margin:auto;
 }
 
 
-.articles p {
+.articles h3 {
+  padding-bottom: 1rem;
   text-align: left;
 }
 
@@ -99,6 +107,11 @@ button {
   margin-top: 3.5rem;
   margin-bottom: -3rem;
   bottom: 0;
+}
+
+#individualInfoBar {
+  margin: auto;
+  color:red;
 }
 
 #articleimg {
@@ -133,4 +146,8 @@ max-height:100%;
   text-align: right;
 }
 
+#collapse {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
 

@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { getIndividualArticle } from "../api";
 import formatDate from "../Utils/utils"
 import ArticleInfoBar from "./ArticleInfoBar";
+import ArticleCard from "./ArticleCard";
+import CommentsList from "./CommentsList";
 
 const IndividualArticle = () => {
   const {article_id} = useParams("");
@@ -35,16 +37,17 @@ const IndividualArticle = () => {
     );
   } else {
     return (
-        <article className="individualArticle">
+      <article className="individualArticle">
         <header>
           <h2>{article.title}</h2>
           <p>{formatDate(article)}</p>
         </header>
         <main>
-        <img id="articleimg" src={article.article_img_url} />
+          <img id="articleimg" src={article.article_img_url} />
           <p>{article.body}</p>
-          <ArticleInfoBar article={article}/>
+          <ArticleInfoBar article={article} />
         </main>
+        <CommentsList article_id={article_id} />
       </article>
     );
   }

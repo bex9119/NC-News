@@ -1,7 +1,6 @@
 
 import { Link } from "react-router-dom";
 import ArticleInfoBar from "./ArticleInfoBar";
-import CommentsList from "./CommentsList";
 
 const ArticleCard = ({ multipleArticles }) => {
   return (
@@ -13,8 +12,7 @@ const ArticleCard = ({ multipleArticles }) => {
             <h3>{article.title}</h3>
               <img className="articleCardImg" src={article.article_img_url} alt="article image" />
               </Link>
-            <ArticleInfoBar article={article} />
-              <CommentsList />
+              <ArticleInfoBar article={article} />
           </li>
             
         );
