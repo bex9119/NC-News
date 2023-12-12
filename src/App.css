@@ -90,3 +90,7 @@ button {
   margin-bottom: -3rem;
   bottom: 0;
 }
+
+.IconButton {
+  color: black
+}

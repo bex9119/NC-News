@@ -11,4 +11,12 @@ const getAllArticles = () => {
     })
 }
 
+const patchArticle = () => {
+  return newsApi.patch('/articles/4', { inc_votes: 1 })
+    .then(({data}) => {
+      return data.article
+  })
+}
+
 export default getAllArticles
+export {patchArticle}
