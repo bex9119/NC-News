@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getIndividualArticle } from "../api";
-import formatDate from "../utils/utils";
+import formatDate from "../Utils/utils"
 import ArticleInfoBar from "./ArticleInfoBar";
 
 const IndividualArticle = () => {
-  const {article_id} = useParams();
+  const {article_id} = useParams("");
   const [article, setArticle] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
