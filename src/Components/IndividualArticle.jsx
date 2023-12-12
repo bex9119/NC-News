@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getIndividualArticle } from "../api";
 import formatDate from "../utils/utils";
+import ArticleInfoBar from "./ArticleInfoBar";
 
 const IndividualArticle = () => {
   const {article_id} = useParams();
@@ -34,16 +35,15 @@ const IndividualArticle = () => {
     );
   } else {
     return (
-      <article>
+        <article className="individualArticle">
         <header>
           <h2>{article.title}</h2>
-          <p>{article.author}</p>
           <p>{formatDate(article)}</p>
         </header>
-        <img src={article.article_img_url} />
         <main>
+        <img id="articleimg" src={article.article_img_url} />
           <p>{article.body}</p>
-          <p>Votes: {article.votes}</p>
+          <ArticleInfoBar article={article}/>
         </main>
       </article>
     );
