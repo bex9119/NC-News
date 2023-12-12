@@ -11,6 +11,12 @@ const getAllArticles = () => {
     })
 }
 
+const getIndividualArticle = (article_id) => {
+  return newsApi.get(`/articles/${article_id}`).then(({ data }) => {
+    return data.article;
+  });
+};
+
 const patchArticle = () => {
   return newsApi.patch('/articles/4', { inc_votes: 1 })
     .then(({data}) => {
@@ -19,4 +25,4 @@ const patchArticle = () => {
 }
 
 export default getAllArticles
-export {patchArticle}
+export {getIndividualArticle, patchArticle}
