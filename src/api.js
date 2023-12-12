@@ -11,4 +11,11 @@ const getAllArticles = () => {
     })
 }
 
+const getIndividualArticle = (article_id) => {
+  return newsApi.get(`/articles/${article_id}`).then(({ data }) => {
+    return data.article;
+  });
+};
+
 export default getAllArticles
+export {getIndividualArticle}
