@@ -22,7 +22,7 @@ const CommentsList = ({article_id}) => {
       <>
         <Collapsible>
           <h3>Comments:</h3>
-          <CommentCard multipleComments={commentsList} />
+          <CommentCard multipleComments={commentsList} setCommentsList={setCommentsList} />
         </Collapsible>
       </>
     );

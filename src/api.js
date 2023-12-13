@@ -32,7 +32,7 @@ const patchArticle = (article_id, patchObject) => {
 }
 
 const deleteComment = (comment_id) => {
-  return newsApi.delete(`/comments/${comment_id}`)
+  return newsApi.delete(`/comments/${comment_id}`);
 }
 
 export default getAllArticles

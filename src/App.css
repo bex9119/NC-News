@@ -144,6 +144,9 @@ max-height:100%;
 
 #commentVote {
   text-align: right;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
 }
 
 #collapse {
@@ -163,4 +166,8 @@ max-height:100%;
 
 #notLiked {
   color: black
+}
+
+.delete {
+  text-align: left;
 }
