@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Collabsible = ({ children }) => {
+const Collapsible = ({ children }) => {
     const [isHidden, setIsHidden] = useState(true)
 
     const toggleView = () => {
@@ -12,4 +12,4 @@ const Collabsible = ({ children }) => {
     </section>
 }
 
-export default Collabsible;
+export default Collapsible;

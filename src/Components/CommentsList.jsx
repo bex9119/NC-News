@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { getArticleComments } from "../api"
 import CommentCard from "./CommentCard"
-import Collabsible from "./Collapsible";
+import Collapsible from "./Collapsible";
 
 const CommentsList = ({article_id}) => {
   const [commentsList, setCommentsList] = useState([])
@@ -20,10 +20,10 @@ const CommentsList = ({article_id}) => {
   else {
     return (
       <>
-        <Collabsible>
+        <Collapsible>
           <h3>Comments:</h3>
           <CommentCard multipleComments={commentsList} />
-        </Collabsible>
+        </Collapsible>
       </>
     );
   }
