@@ -17,9 +17,23 @@ const getIndividualArticle = (article_id) => {
   });
 };
 
+const getArticleComments = (article_id) => {
+  return newsApi.get(`/articles/${article_id}/comments`)
+    .then(({data}) => {
+    return data.comments
+  })
+}
+
+const patchArticle = (article_id, patchObject) => {
+  return newsApi.patch(`/articles/${article_id}`, patchObject)
+    .then(({data}) => {
+      return data.article
+  })
+}
+
 const deleteComment = (comment_id) => {
   return newsApi.delete(`/comments/${comment_id}`)
 }
 
 export default getAllArticles
-export {getIndividualArticle, deleteComment}
+export {getIndividualArticle, getArticleComments, patchArticle, deleteComment}
