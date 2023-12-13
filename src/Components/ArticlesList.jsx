@@ -19,7 +19,10 @@ const ArticlesList = () => {
     return (
       <main>
         <h2>Articles</h2>
-        <ArticleCard multipleArticles={articlesList} />
+        <ArticleCard
+          setArticles={setArticlesList}
+          multipleArticles={articlesList}
+        />
       </main>
     );
   }

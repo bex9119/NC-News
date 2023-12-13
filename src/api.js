@@ -24,5 +24,12 @@ const getArticleComments = (article_id) => {
   })
 }
 
+const patchArticle = (article_id, patchObject) => {
+  return newsApi.patch(`/articles/${article_id}`, patchObject)
+    .then(({data}) => {
+      return data.article
+  })
+}
+
 export default getAllArticles
-export {getIndividualArticle, getArticleComments}
+export {getIndividualArticle, getArticleComments, patchArticle}

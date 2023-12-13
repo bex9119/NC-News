@@ -1,28 +1,33 @@
-import ThumbUpAltSharpIcon from "@mui/icons-material/ThumbUpAltSharp";
 import CommentSharpIcon from "@mui/icons-material/CommentSharp";
 import CreateSharpIcon from "@mui/icons-material/CreateSharp";
 import TopicSharpIcon from "@mui/icons-material/TopicSharp";
+import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 
 const ArticleInfoBar = ({ article }) => {
   return (
-    <Stack className="articleInfoBar" direction="row" spacing={2}>
-      <section>
+    <Stack direction="row" spacing={2}>
+      <IconButton
+        disabled={true}
+        style={{ color: "inherit", fontSize: "inherit" }}
+      >
         <CreateSharpIcon />
         <span> {article.author}</span>
-      </section>
-      <section>
+      </IconButton>
+      <IconButton
+        disabled={true}
+        style={{ color: "inherit", fontSize: "inherit" }}
+      >
         <TopicSharpIcon />
         <span> {article.topic}</span>
-      </section>
-      <section>
+      </IconButton>
+      <IconButton
+        disabled={true}
+        style={{ color: "inherit", fontSize: "inherit" }}
+      >
         <CommentSharpIcon />
         <span> {article.comment_count}</span>
-      </section>
-      <section>
-        <ThumbUpAltSharpIcon />
-        <span> {article.votes}</span>
-      </section>
+      </IconButton>
     </Stack>
   );
 };
