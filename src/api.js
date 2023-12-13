@@ -17,5 +17,9 @@ const getIndividualArticle = (article_id) => {
   });
 };
 
+const deleteComment = (comment_id) => {
+  return newsApi.delete(`/comments/${comment_id}`)
+}
+
 export default getAllArticles
-export {getIndividualArticle}
+export {getIndividualArticle, deleteComment}
