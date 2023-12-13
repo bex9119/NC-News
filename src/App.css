@@ -151,8 +151,21 @@ max-height:100%;
   margin-bottom: 2rem;
 }
 
-
-
 #blankComment {
   border: 2px solid red;
+}
+
+#postCommentForm {
+  margin-right: 3rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.postCommentArea {
+  height: 4rem;
+  width: 10rem;
+}
+
+#postCommentForm button {
+  margin:1rem;
 }

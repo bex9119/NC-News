@@ -2,10 +2,10 @@ import { useContext, useState } from "react"
 import { postComment } from "../api"
 import { UserContext } from "../Context/UserContext";
 
-const PostComment = ({ article_id }) => {
+const PostComment = ({ article_id , setCommentsList}) => {
     const { user } = useContext(UserContext);
     //this is in comments list
-    const [commentsList, setCommentsList] = useState([])
+
     const [newComment, setNewComment] = useState('')
     const [blankComment, setBlankComment] = useState({id: '', placeholder: 'Comment...'})
 
@@ -15,13 +15,14 @@ const PostComment = ({ article_id }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (newComment) {
-            postComment(article_id, { username: user.username, body: newComment })
-
+          postComment(article_id, { username: user.username, body: newComment }).then((postedComment) => {
             setCommentsList((currComments) => {
-                return [newComment, ...currComments]
+                  return [postedComment, ...currComments]
+              })
+              setNewComment('')
+              setBlankComment({id: '', placeholder: 'Comment...'})         
             })
-            setNewComment('')
-            setBlankComment({id: '', placeholder: 'Comment...'})
+
         }
         else {
             setBlankComment({ id: "blankComment", placeholder: "Please enter a comment here." });
@@ -29,14 +30,14 @@ const PostComment = ({ article_id }) => {
     }
 
     return (
-      <form onSubmit={handleSubmit}>
-        <input
+      <form id='postCommentForm' onSubmit={handleSubmit}>
+        <textarea className='postCommentArea'
           type="text"
           onChange={handleInput}
           value={newComment}
           id={blankComment.id}
           placeholder={blankComment.placeholder}
-        ></input>
+        ></textarea>
         <button>Comment</button>
       </form>
     );

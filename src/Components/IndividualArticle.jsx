@@ -50,7 +50,6 @@ const IndividualArticle = () => {
         </main>
         <section>
         <CommentsList article_id={article_id} />
-          <PostComment article_id={article_id}/>
         </section>
       </article>
     );
