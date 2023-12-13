@@ -22,6 +22,20 @@ const getIndividualArticle = (article_id) => {
   });
 };
 
+const getArticleComments = (article_id) => {
+  return newsApi.get(`/articles/${article_id}/comments`)
+    .then(({data}) => {
+    return data.comments
+  })
+}
+
+const patchArticle = (article_id, patchObject) => {
+  return newsApi.patch(`/articles/${article_id}`, patchObject)
+    .then(({data}) => {
+      return data.article
+  })
+}
+
 const getAllTopics = () => {
   return newsApi.get('/topics').then(({data}) => {
     return data.topics
@@ -29,4 +43,4 @@ const getAllTopics = () => {
 }
 
 export default getAllArticles
-export {getIndividualArticle, getAllTopics}
+export {getIndividualArticle, getArticleComments, patchArticle, getAllTopics}
