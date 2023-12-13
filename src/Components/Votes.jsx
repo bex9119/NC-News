@@ -7,6 +7,7 @@ import { useState } from "react";
 const Votes = ({ article, setArticle }) => {
   const [beenClicked, setbeenClicked] = useState(false);
   const [buttonColour, setButtonColour] = useState("notLiked");
+  const [errMsg, setErrMsg] = useState('')
 
   const setToLiked = () => {
     setArticle((currArticle) => {
@@ -27,12 +28,20 @@ const Votes = ({ article, setArticle }) => {
   const changeVotes = () => {
     if (beenClicked) {
       patchArticle(article.article_id, { inc_votes: -1 }).catch((err) => {
+        setErrMsg(" Error - please try again")
         setToLiked();
+        setTimeout(() => {
+          setErrMsg('')
+        }, 2000)
       });
       removeLike();
     } else {
       patchArticle(article.article_id, { inc_votes: +1 }).catch((err) => {
+        setErrMsg(" Error - please try again");
         removeLike();
+                setTimeout(() => {
+                  setErrMsg("");
+                }, 2000);
       });
       setToLiked();
     }
@@ -48,7 +57,7 @@ const Votes = ({ article, setArticle }) => {
         style={{ color: { buttonColour }, fontSize: "inherit" }}
       >
         <FavoriteSharpIcon />
-        <span>{article.votes}</span>
+        <span>{errMsg ? errMsg : article.votes}</span>
       </IconButton>
     </Stack>
   );
