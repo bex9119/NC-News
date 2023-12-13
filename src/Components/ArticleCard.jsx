@@ -12,8 +12,8 @@ const ArticleCard = ({ multipleArticles }) => {
             <h3>{article.title}</h3>
               <img className="articleCardImg" src={article.article_img_url} alt="article image" />
               </Link>
-            <ArticleInfoBar article={article} />
-            </li>
+              <ArticleInfoBar article={article} />
+          </li>
             
         );
       })}

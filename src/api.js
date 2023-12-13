@@ -17,5 +17,12 @@ const getIndividualArticle = (article_id) => {
   });
 };
 
+const getArticleComments = (article_id) => {
+  return newsApi.get(`/articles/${article_id}/comments`)
+    .then(({data}) => {
+    return data.comments
+  })
+}
+
 export default getAllArticles
-export {getIndividualArticle}
+export {getIndividualArticle, getArticleComments}
