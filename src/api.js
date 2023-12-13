@@ -17,8 +17,8 @@ const getIndividualArticle = (article_id) => {
   });
 };
 
-const patchArticle = () => {
-  return newsApi.patch('/articles/4', { inc_votes: 1 })
+const patchArticle = (article_id, patchObject) => {
+  return newsApi.patch(`/articles/${article_id}`, patchObject)
     .then(({data}) => {
       return data.article
   })
