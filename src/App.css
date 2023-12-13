@@ -32,6 +32,11 @@ h2 {
   margin-bottom: 1rem;
 }
 
+h3 {
+  padding-top: 1rem;
+  margin-left: 3rem;
+  margin-bottom: -1rem;
+}
 main {
   border: 2px solid gold;
   margin: 3rem;
@@ -83,11 +88,14 @@ li {
 }
 
 button {
+  display: flex;
   padding: 0.75rem;
+  margin:auto;
 }
 
 
-.articles p {
+.articles h3 {
+  padding-bottom: 1rem;
   text-align: left;
 }
 
@@ -99,6 +107,11 @@ button {
   margin-top: 3.5rem;
   margin-bottom: -3rem;
   bottom: 0;
+}
+
+#individualInfoBar {
+  margin: auto;
+  color:red;
 }
 
 #articleimg {
@@ -114,6 +127,31 @@ max-height:100%;
 .individualArticle p {
   margin-top: 1rem;
 }
+
+.comment {
+  border: 2px solid red;
+  margin-top: 1rem;
+
+}
+
+#commentAuthor {
+  padding: 0.5rem;
+}
+
+#commentBody {
+  padding: 0.5rem;
+}
+
+#commentVote {
+  text-align: right;
+}
+
+#collapse {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+
+
 
 .IconButton {
   color: black

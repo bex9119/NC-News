@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { getIndividualArticle } from "../api";
 import formatDate from "../Utils/utils"
 import ArticleInfoBar from "./ArticleInfoBar";
+import ArticleCard from "./ArticleCard";
+import CommentsList from "./CommentsList";
 import Votes from "./Votes";
 import Stack from "@mui/material/Stack";
 
@@ -52,6 +54,7 @@ const IndividualArticle = () => {
             <Votes article={article} setArticle={setArticle} />
           </Stack>
         </main>
+        <CommentsList article_id={article_id} />
       </article>
     );
   }
