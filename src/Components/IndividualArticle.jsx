@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getIndividualArticle } from "../api";
 import formatDate from "../Utils/utils"
 import ArticleInfoBar from "./ArticleInfoBar";
+import PostComment from "./PostComment";
 
 const IndividualArticle = () => {
   const {article_id} = useParams("");
@@ -45,6 +46,9 @@ const IndividualArticle = () => {
           <p>{article.body}</p>
           <ArticleInfoBar article={article}/>
         </main>
+        <section>
+          <PostComment article_id={article_id}/>
+        </section>
       </article>
     );
   }
