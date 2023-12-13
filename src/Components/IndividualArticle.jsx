@@ -5,10 +5,13 @@ import formatDate from "../Utils/utils"
 import ArticleInfoBar from "./ArticleInfoBar";
 import ArticleCard from "./ArticleCard";
 import CommentsList from "./CommentsList";
+import Votes from "./Votes";
+import Stack from "@mui/material/Stack";
+
 import PostComment from "./PostComment";
 
 const IndividualArticle = () => {
-  const {article_id} = useParams("");
+  const { article_id } = useParams("");
   const [article, setArticle] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -24,6 +27,7 @@ const IndividualArticle = () => {
         setIsLoading(false);
       });
   }, [article_id]);
+
 
   if (isLoading) {
     return <h3>Loading...</h3>;
@@ -46,7 +50,10 @@ const IndividualArticle = () => {
         <main>
           <img id="articleimg" src={article.article_img_url} />
           <p>{article.body}</p>
-          <ArticleInfoBar article={article} />
+          <Stack direction="row" spacing={2}>
+            <ArticleInfoBar article={article} setArticle={setArticle} />
+            <Votes article={article} setArticle={setArticle} />
+          </Stack>
         </main>
         <section>
         <CommentsList article_id={article_id} />

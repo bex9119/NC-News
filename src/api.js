@@ -24,6 +24,13 @@ const getArticleComments = (article_id) => {
   })
 }
 
+const patchArticle = (article_id, patchObject) => {
+  return newsApi.patch(`/articles/${article_id}`, patchObject)
+    .then(({data}) => {
+      return data.article
+  })
+}
+
 const postComment = (article_id, commentToPost) => {
   return newsApi.post(`/articles/${article_id}/comments`, commentToPost)
     .then(({data}) => {
@@ -32,4 +39,4 @@ const postComment = (article_id, commentToPost) => {
 };
 
 export default getAllArticles
-export {getIndividualArticle, getArticleComments, postComment}
+export {getIndividualArticle, getArticleComments, patchArticle, postComment}
