@@ -17,6 +17,13 @@ const getIndividualArticle = (article_id) => {
   });
 };
 
+const getArticleComments = (article_id) => {
+  return newsApi.get(`/articles/${article_id}/comments`)
+    .then(({data}) => {
+    return data.comments
+  })
+}
+
 const postComment = (article_id, commentToPost) => {
   return newsApi.post(`/articles/${article_id}/comments`, commentToPost)
     .then(({data}) => {
@@ -25,4 +32,4 @@ const postComment = (article_id, commentToPost) => {
 };
 
 export default getAllArticles
-export {getIndividualArticle, postComment}
+export {getIndividualArticle, getArticleComments, postComment}
