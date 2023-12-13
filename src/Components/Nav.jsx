@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import TopicsBar from "./TopicsBar";
 
 const Nav = () => {
     return (
@@ -9,6 +10,7 @@ const Nav = () => {
         <Link to="/articles" className="links">
           Articles
         </Link>
+        <TopicsBar />
       </nav>
     );
 }
