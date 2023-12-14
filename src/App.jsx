@@ -6,6 +6,7 @@ import Header from './Components/Header'
 import Nav from './Components/Nav'
 import IndividualArticle from './Components/IndividualArticle'
 import ArticleByTopic from './Components/ArticleByTopic'
+import ErrorHandling from './Components/ErrorHandling'
 
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
         <Route path="/" element={<ArticleHome />} />
         <Route path="/articles" element={<ArticlesList />} />
         <Route path="/articles/:article_id" element={<IndividualArticle />} />
-        <Route path='/articles/topics/:topic' element={<ArticleByTopic/>} />
+        <Route path='/articles/topics/:topic' element={<ArticleByTopic />} />
+        <Route path='/*' element={<ErrorHandling message='Route Not Found'/>}/>
       </Routes>
     </>
   );
