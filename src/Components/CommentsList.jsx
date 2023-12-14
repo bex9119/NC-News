@@ -25,7 +25,7 @@ const CommentsList = ({article_id}) => {
           <h3>Comments:</h3>
           <p>{commentsList.length === 0 ? 'Be the first to comment!' : '' }</p>
           <PostComment article_id={article_id} setCommentsList={setCommentsList } />
-          <CommentCard multipleComments={commentsList} />
+          <CommentCard multipleComments={commentsList} setCommentsList={setCommentsList} />
         </Collapsible>
       </>
     );
