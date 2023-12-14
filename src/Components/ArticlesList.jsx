@@ -1,31 +1,48 @@
 import { useEffect, useState } from "react";
 import getAllArticles from "../api";
 import ArticleCard from "./ArticleCard";
+import { useParams } from "react-router-dom";
 
-const ArticlesList = () => {
+const ArticlesList = ({order, sortBy}) => {
   const [articlesList, setArticlesList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { topic } = useParams("");
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getAllArticles().then((allArticles) => {
-      setArticlesList(allArticles);
-      setIsLoading(false);
-    });
-  }, []);
+        setIsLoading(true)
+    getAllArticles(topic, order, sortBy)
+      .then((allArticles) => {
+        setArticlesList(allArticles);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+        setIsLoading(false);
+      });
+  }, [topic ,order, sortBy]);
 
   if (isLoading) {
     return <h2>Loading...</h2>;
-  } else {
-    return (
-      <main>
-        <h2>Articles</h2>
-        <ArticleCard
-          setArticles={setArticlesList}
-          multipleArticles={articlesList}
-        />
-      </main>
-    );
   }
+    if (error) {
+      return (
+        <section>
+          <h2>{error.response.status}</h2>
+          <p>{error.response.data.msg}</p>
+        </section>
+      );
+    } else {
+      return (
+        <main>
+          <h2>Articles</h2>
+          <ArticleCard
+            setArticles={setArticlesList}
+            multipleArticles={articlesList}
+          />
+        </main>
+      );
+    }
 };
 
 export default ArticlesList;

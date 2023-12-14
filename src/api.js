@@ -4,11 +4,17 @@ const newsApi = axios.create({
   baseURL: "https://news-13r8.onrender.com/api"
 });
 
-const getAllArticles = (selectTopic) => {
+const getAllArticles = (selectTopic, orderQuery, sortBy) => {
+  let sortByQuery = null
+  if (sortBy) {
+    sortByQuery = sortBy.get("sort_by");
+  }
   return newsApi
     .get("/articles", {
       params: {
         topic: selectTopic,
+        order: orderQuery,
+        sort_by: sortByQuery,
       },
     })
     .then(({ data }) => {
