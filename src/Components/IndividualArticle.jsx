@@ -7,6 +7,7 @@ import CommentsList from "./CommentsList";
 import Votes from "./Votes";
 import Stack from "@mui/material/Stack";
 
+import PostComment from "./PostComment";
 
 const IndividualArticle = () => {
   const { article_id } = useParams("");
@@ -53,7 +54,9 @@ const IndividualArticle = () => {
             <Votes article={article} setArticle={setArticle} />
           </Stack>
         </main>
+        <section>
         <CommentsList article_id={article_id} />
+        </section>
       </article>
     );
   }

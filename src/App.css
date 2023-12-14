@@ -34,7 +34,7 @@ h2 {
 
 h3 {
   padding-top: 1rem;
-  margin-left: 3rem;
+  padding-bottom: 0.5rem;
   margin-bottom: -1rem;
 }
 main {
@@ -166,6 +166,27 @@ max-height:100%;
 
 #notLiked {
   color: black
+}#blankComment {
+  border: 2px solid red;
+}
+
+#postCommentForm {
+  margin-right: 3rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.postCommentArea {
+  height: 4rem;
+  width: 10rem;
+}
+
+#postCommentForm button {
+  margin:1rem;
+}
+
+.errorMsg {
+  text-align: center;
 }
 
 .delete {
