@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 import getAllArticles from "../api";
 import ArticleCard from "./ArticleCard";
+import { useParams } from "react-router-dom";
 import ErrorHandling from "./ErrorHandling";
 
-const ArticlesList = () => {
+const ArticlesList = ({order, sortBy}) => {
   const [articlesList, setArticlesList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { topic } = useParams("");
+  const [error, setError] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    getAllArticles()
+        setIsLoading(true)
+    getAllArticles(topic, order, sortBy)
       .then((allArticles) => {
         setArticlesList(allArticles);
         setIsLoading(false);
@@ -18,7 +22,7 @@ const ArticlesList = () => {
         setError(err);
         setIsLoading(false);
       });
-  }, []);
+  }, [topic ,order, sortBy]);
 
   if (isLoading) {
     return <h2>Loading...</h2>;
