@@ -1,23 +1,32 @@
-const Order = ({ setOrder }) => {
-    
-    return (
-      <section>
-        <button
-          onClick={() => {
-            setOrder("DESC");
-          }}
-        >
-          Desc
-        </button>
-        <button
-          onClick={() => {
-            setOrder("ASC");
-          }}
-        >
-          Asc
-        </button>
-      </section>
-    );
-}
+import { useState } from "react";
 
-export default Order
+const Order = ({ setOrder }) => {
+  const [ascClicked, setAscClicked] = useState(null);
+  const [descClicked, setdescClicked] = useState(null);
+  return (
+    <section id="order">
+      <button
+        id={descClicked}
+        onClick={() => {
+          setOrder("DESC");
+          setAscClicked(null);
+          setdescClicked("clicked");
+        }}
+      >
+        Desc
+      </button>
+      <button
+        id={ascClicked}
+        onClick={() => {
+          setOrder("ASC");
+          setAscClicked("clicked");
+          setdescClicked(null);
+        }}
+      >
+        Asc
+      </button>
+    </section>
+  );
+};
+
+export default Order;
