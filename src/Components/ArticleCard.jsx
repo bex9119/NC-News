@@ -3,7 +3,7 @@ import ArticleInfoBar from "./ArticleInfoBar";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import FavoriteSharpIcon from "@mui/icons-material/FavoriteSharp";
-import formatDate from "../utils/utils";
+import formatDate from "../Utils/utils"
 
 const ArticleCard = ({ multipleArticles }) => {
   return (
