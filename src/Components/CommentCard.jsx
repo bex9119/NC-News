@@ -26,6 +26,7 @@ const CommentCard = ({ multipleComments, setCommentsList }) => {
                 commentAuthor={comment.author}
                 commentId={comment.comment_id}
                 setCommentsList={setCommentsList}
+                multipleComments={multipleComments}
               />
             </section>
           </li>
