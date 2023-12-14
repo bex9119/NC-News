@@ -9,7 +9,6 @@ const ArticlesList = ({order, sortBy}) => {
   const [isLoading, setIsLoading] = useState(true);
   const { topic } = useParams("");
   const [error, setError] = useState(null);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
         setIsLoading(true)
