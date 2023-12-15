@@ -10,17 +10,20 @@ const ArticleCard = ({ multipleArticles }) => {
     <ul>
       {multipleArticles.map((article) => {
         return (
-          <li key={article.article_id} className="articles">
+          <li
+            key={article.article_id}
+            className="max-w-sm rounded overflow-wrap shadow-lg"
+          >
             <Link className="links" to={"/articles/" + article.article_id}>
-              <h3>{article.title}</h3>
-              <p>{formatDate(article) }</p>
+              <h3 className="font-bold text-xl mb-2">{article.title}</h3>
+              <p className="text-gray-700 text-base">{formatDate(article)}</p>
               <img
-                className="articleCardImg"
+                className="w-full"
                 src={article.article_img_url}
                 alt="article image"
               />
             </Link>
-            <Stack className="articleInfoBar" direction="row" spacing={2}>
+            <section className=" flex">
               <ArticleInfoBar article={article} />
               <IconButton
                 disabled={true}
@@ -29,7 +32,7 @@ const ArticleCard = ({ multipleArticles }) => {
                 <FavoriteSharpIcon />
                 <span>{article.votes}</span>
               </IconButton>
-            </Stack>
+            </section>
           </li>
         );
       })}

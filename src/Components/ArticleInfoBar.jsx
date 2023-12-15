@@ -6,8 +6,8 @@ import Stack from "@mui/material/Stack";
 
 const ArticleInfoBar = ({ article }) => {
   return (
-    <Stack direction="row" spacing={2}>
-      <IconButton
+    <section className=" flex px-6 pt-4 pb-2 flex">
+      <IconButton 
         disabled={true}
         style={{ color: "inherit", fontSize: "inherit" }}
       >
@@ -28,7 +28,7 @@ const ArticleInfoBar = ({ article }) => {
         <CommentSharpIcon />
         <span> {article.comment_count}</span>
       </IconButton>
-    </Stack>
+    </section>
   );
 };
 

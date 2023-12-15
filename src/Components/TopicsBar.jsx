@@ -12,19 +12,19 @@ const TopicsBar = () => {
   }, []);
 
   return (
-    <>
+    <section className="flex justify-left space-x-10">
       {topics.map((topic) => {
         return (
           <Link
             to={"/articles/topics/" + topic.slug}
             key={topic.slug}
-            className="links"
+            className="text-blue-500 hover:text-blue-800 font-bold"
           >
             {topic.slug}
           </Link>
         );
       })}
-    </>
+    </section>
   );
 };
 
