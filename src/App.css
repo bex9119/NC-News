@@ -217,3 +217,9 @@ max-height:100%;
 #clicked {
   color: green;
 }
+
+#charLimit {
+  margin-top: -0.5rem;
+  padding-top: 0rem;
+  font-size: small;
+}

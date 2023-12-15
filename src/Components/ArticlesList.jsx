@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import getAllArticles from "../api";
 import ArticleCard from "./ArticleCard";
 import { useParams } from "react-router-dom";
+import ErrorHandling from "./ErrorHandling";
 
 const ArticlesList = ({order, sortBy}) => {
   const [articlesList, setArticlesList] = useState([]);
@@ -25,24 +26,24 @@ const ArticlesList = ({order, sortBy}) => {
   if (isLoading) {
     return <h2>Loading...</h2>;
   }
-    if (error) {
-      return (
-        <section>
-          <h2>{error.response.status}</h2>
-          <p>{error.response.data.msg}</p>
-        </section>
-      );
-    } else {
-      return (
-        <main>
-          <h2>Articles</h2>
-          <ArticleCard
-            setArticles={setArticlesList}
-            multipleArticles={articlesList}
-          />
-        </main>
-      );
-    }
+  if (error) {
+    return (
+      <ErrorHandling
+        status={error.response.status}
+        message={error.response.data.msg}
+      />
+    );
+  } else {
+    return (
+      <main>
+        <h2>Articles</h2>
+        <ArticleCard
+          setArticles={setArticlesList}
+          multipleArticles={articlesList}
+        />
+      </main>
+    );
+  }
 };
 
 export default ArticlesList;

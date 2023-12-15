@@ -8,6 +8,7 @@ import Votes from "./Votes";
 import Stack from "@mui/material/Stack";
 
 import PostComment from "./PostComment";
+import ErrorHandling from "./ErrorHandling";
 
 const IndividualArticle = () => {
   const { article_id } = useParams("");
@@ -34,10 +35,10 @@ const IndividualArticle = () => {
 
   if (error) {
     return (
-      <section>
-        <h2>{error.response.status}</h2>
-        <p>{error.response.data.msg}</p>
-      </section>
+      <ErrorHandling
+        status={error.response.status}
+        message={error.response.data.msg}
+      />
     );
   } else {
     return (
