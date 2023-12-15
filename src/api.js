@@ -6,7 +6,9 @@ const newsApi = axios.create({
 
 const getAllArticles = (selectTopic, orderQuery, sortBy) => {
   let sortByQuery = null
-  if (sortBy) {
+  if (typeof sortBy === 'string') {
+    sortByQuery = sortBy
+  } else if (sortBy) {
     sortByQuery = sortBy.get("sort_by");
   }
   return newsApi

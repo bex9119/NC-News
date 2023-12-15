@@ -8,6 +8,8 @@ const ArticleHome = () => {
   const [articlesList, setArticlesList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [limitedArticles, setLimitedArticles] = useState([]);
+  const [mostCommentedArticle, setMostCommentedArticle] = useState([])
+  const [mostLikedArticle, setMostLikedArticle] = useState([])
      const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -15,7 +17,13 @@ const ArticleHome = () => {
         .then((allArticles) => {
           setArticlesList(allArticles);
           setIsLoading(false);
-        })
+      })
+    getAllArticles(null, null, 'comment_count').then((commentArticles) => {
+      setMostCommentedArticle([commentArticles[0]])
+    });
+    getAllArticles(null, null, 'votes').then((voteArticles) => {
+      setMostLikedArticle([voteArticles[0]])
+      })
         .catch((err) => {
           setError(err);
           setIsLoading(false);
@@ -25,7 +33,6 @@ const ArticleHome = () => {
     useEffect(() => {
         setLimitedArticles([...articlesList].slice(0, 5));
     }, [articlesList])
-
 
   if (isLoading) {
       return <h2>Loading...</h2>
@@ -38,7 +45,8 @@ const ArticleHome = () => {
         />
       );
     } else {
-      return (
+    return (
+      <>
         <main>
           <h2>Newest</h2>
           <ArticleCard multipleArticles={limitedArticles} />
@@ -46,7 +54,14 @@ const ArticleHome = () => {
             <button>All Articles</button>
           </Link>
         </main>
-      );
+        <section>
+          <h2>Most Commented:</h2>
+          <ArticleCard multipleArticles={[...mostCommentedArticle]} />
+          <h2>Most Liked:</h2>
+          <ArticleCard multipleArticles={[...mostLikedArticle]} />
+        </section>
+      </>
+    );
     }
 }
 
