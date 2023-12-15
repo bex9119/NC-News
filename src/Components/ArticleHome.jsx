@@ -17,10 +17,19 @@ const ArticleHome = () => {
         .then((allArticles) => {
           setArticlesList(allArticles);
           setIsLoading(false);
+        })
+        .catch((err) => {
+          setError(err);
+          setIsLoading(false);
+        });
+    getAllArticles(null, null, "comment_count")
+      .then((commentArticles) => {
+        setMostCommentedArticle([commentArticles[0]]);
       })
-    getAllArticles(null, null, 'comment_count').then((commentArticles) => {
-      setMostCommentedArticle([commentArticles[0]])
-    });
+      .catch((err) => {
+        setError(err);
+        setIsLoading(false);
+      });
     getAllArticles(null, null, 'votes').then((voteArticles) => {
       setMostLikedArticle([voteArticles[0]])
       })
