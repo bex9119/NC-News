@@ -6,7 +6,7 @@ This frontend project contains a website which allows users to read articles, di
 
 This website has been built using React, Vite and CSS.
 
-This project is hosted using Netlify: 
+This project is hosted using Netlify: https://rwallis-news.netlify.app
 
 Following this link, will take you to the website, so you can explore.
 
