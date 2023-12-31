@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import ArticleHome from "./Components/ArticleHome";
 import Header from "./Components/Header";
-import Nav from "./Components/Nav";
+import Navigation from "./Components/Nav";
 import IndividualArticle from "./Components/IndividualArticle";
 import AllArticles from "./Components/AllArticles";
 import ErrorHandling from './Components/ErrorHandling'
@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Header />
-      <Nav />
+      <Navigation />
       <Routes>
         <Route path="/" element={<ArticleHome />} />
         <Route path="/articles" element={<AllArticles />} />

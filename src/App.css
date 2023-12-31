@@ -1,145 +1,12 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-body {
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: 15% auto;
-  grid-template-areas:
-    "head"
-    "main"
-
-}
-header {
-  text-align: center;
-  margin: 0.5rem;
-  margin-left: 3rem;
-  margin-right: 3rem;
-  border-radius: 15px;
-  border: 2px solid darkgreen;
-}
-
-h1 {
-  padding: 1rem;
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-h3 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  margin-bottom: -1rem;
-}
-main {
-  border: 2px solid gold;
-  margin: 3rem;
-  border-radius: 15px;
-  padding: 1rem;
-
-}
-
-.articleCardImg {
-  margin-top: 0.5rem;
-  max-width: 100px;
-  max-height: 100px;
-}
-
-.userAvatar {
-    margin-top: 0.5rem;
-  max-width: 100px;
-  max-height: 100px;
-}
-
-nav {
-  border: 2px solid lightgreen;
-  margin: 3rem;
-  margin-top: 0rem;
-  border-radius: 15px;
-  padding: 1rem;
-
-}
-
-ul {
-  padding-top: 1rem;
-  list-style-type: none;
-  padding-left: 0px;
-}
-
-li {
-  padding: 0.5rem;
-  padding-bottom: 4rem;
-  text-decoration: none;
-  border-bottom: 2px solid black;
-  margin-bottom: 4rem;
-  margin-top: -1rem;
-  padding-top:0
-}
-
 .links {
   margin-right: 1rem;
-  color: black;
-}
-
-button {
-  display: flex;
-  padding: 0.75rem;
-  margin:auto;
-}
-
-
-.articles h3 {
-  padding-bottom: 1rem;
-  text-align: left;
-}
-
-.articles img {
-  float: right;
-}
-
-.articleInfoBar {
-  margin-top: 3.5rem;
-  margin-bottom: -3rem;
-  bottom: 0;
+  color: white;
+  text-decoration: none;
 }
 
 #individualInfoBar {
   margin: auto;
-  color:red;
-}
-
-#articleimg {
-  max-width:100%;
-max-height:100%;
-}
-
-.individualArticle main {
-  margin-top: 1rem;
-  padding-bottom: 0rem;
-}
-
-.individualArticle p {
-  margin-top: 1rem;
-}
-
-.comment {
-  border: 2px solid red;
-  margin-top: 1rem;
-
-}
-
-#commentAuthor {
-  padding: 0.5rem;
-}
-
-#commentBody {
-  padding: 0.5rem;
+  color: red;
 }
 
 #commentVote {
@@ -150,14 +17,11 @@ max-height:100%;
 }
 
 #collapse {
-  margin-top: 5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 
-
-
 .IconButton {
-  color: black
+  color: black;
 }
 
 #liked {
@@ -165,24 +29,11 @@ max-height:100%;
 }
 
 #notLiked {
-  color: black
-}#blankComment {
+  color: white;
+}
+
+#blankComment {
   border: 2px solid red;
-}
-
-#postCommentForm {
-  margin-right: 3rem;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.postCommentArea {
-  height: 4rem;
-  width: 10rem;
-}
-
-#postCommentForm button {
-  margin:1rem;
 }
 
 .errorMsg {
@@ -196,7 +47,6 @@ max-height:100%;
 .sortBar {
   display: flex;
   margin-left: 3rem;
-
 }
 
 #order {
@@ -204,7 +54,7 @@ max-height:100%;
 }
 
 .sortBar button {
-  padding:0.5rem;
+  padding: 0.5rem;
   background-color: white;
   border: none;
   text-decoration: underline;
@@ -216,10 +66,4 @@ max-height:100%;
 
 #clicked {
   color: green;
-}
-
-#charLimit {
-  margin-top: -0.5rem;
-  padding-top: 0rem;
-  font-size: small;
 }

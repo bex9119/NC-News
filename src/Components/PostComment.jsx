@@ -1,6 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { postComment } from "../api";
 import { UserContext } from "../Context/UserContext";
+import Button from "react-bootstrap/Button"
+import Form from "react-bootstrap/Form";
 
 const PostComment = ({ article_id, setCommentsList }) => {
   const { user } = useContext(UserContext);
@@ -15,12 +17,12 @@ const PostComment = ({ article_id, setCommentsList }) => {
   const [commentLengthErr, setCommentLengthErr] = useState('')
 
   const handleInput = (event) => {
-    console.log(newComment.length)
-    if (newComment.length < 101){
+    setCommentLengthErr("");
+    if (newComment.length < 99){
       setNewComment(event.target.value);
     }
-    else if (newComment.length > 100) {
-      setIsDisabled(true);
+    else if (newComment.length >= 99) {
+      setNewComment(event.target.value);
       setCommentLengthErr("You have reached the character limit");
     }
   };
@@ -29,6 +31,7 @@ const PostComment = ({ article_id, setCommentsList }) => {
     if (newComment && newComment.length <= 100) {
       setIsLoading(true);
       setIsDisabled(true);
+          setCommentLengthErr("");
       postComment(article_id, { username: user.username, body: newComment })
         .then((postedComment) => {
           setCommentsList((currComments) => {
@@ -58,21 +61,24 @@ const PostComment = ({ article_id, setCommentsList }) => {
 
   return (
     <>
-      <form id="postCommentForm" onSubmit={handleSubmit}>
-        <textarea
-          className="postCommentArea"
-          type="text"
-          onChange={handleInput}
-          value={newComment}
-          id={blankComment.id}
-          placeholder={blankComment.placeholder}
-        ></textarea>
-        <button disabled={isDisabled}>
+      <Form  onSubmit={handleSubmit}>
+        <Form.Group className="mb-3">
+          <Form.Control
+            as="textarea"
+            rows={3}
+            onChange={handleInput}
+            value={newComment}
+            id={blankComment.id}
+            placeholder={blankComment.placeholder}
+            maxLength={100}
+          />
+         <Form.Text style={{color: 'white'}}>Limit 100 Characters</Form.Text>
+        </Form.Group>
+        <Button type="submit" disabled={isDisabled}>
           {isLoading ? "Please wait" : "Comment"}
-        </button>
-      </form>
+        </Button>
+      </Form>
       <section className="errorMsg">
-        <p id='charLimit'>Limit 100 Characters</p>
         <p>{commentLengthErr ? commentLengthErr : ""}</p>
       </section>
       <p className="errorMsg">

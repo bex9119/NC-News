@@ -9,21 +9,21 @@ const ArticleInfoBar = ({ article }) => {
     <Stack direction="row" spacing={2}>
       <IconButton
         disabled={true}
-        style={{ color: "inherit", fontSize: "inherit" }}
+        style={{ color: "inherit", fontSize: "small" }}
       >
         <CreateSharpIcon />
         <span> {article.author}</span>
       </IconButton>
       <IconButton
         disabled={true}
-        style={{ color: "inherit", fontSize: "inherit" }}
+        style={{ color: "inherit", fontSize: "small" }}
       >
         <TopicSharpIcon />
         <span> {article.topic}</span>
       </IconButton>
       <IconButton
         disabled={true}
-        style={{ color: "inherit", fontSize: "inherit" }}
+        style={{ color: "inherit", fontSize: "small" }}
       >
         <CommentSharpIcon />
         <span> {article.comment_count}</span>

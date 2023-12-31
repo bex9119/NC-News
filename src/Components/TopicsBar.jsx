@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllTopics } from "../api";
-import { Link } from "react-router-dom";
+import Nav from "react-bootstrap/Nav";
+import { LinkContainer } from "react-router-bootstrap";
 
 const TopicsBar = () => {
   const [topics, setTopics] = useState([]);
@@ -15,13 +16,17 @@ const TopicsBar = () => {
     <>
       {topics.map((topic) => {
         return (
-          <Link
-            to={"/articles/topics/" + topic.slug}
-            key={topic.slug}
-            className="links"
-          >
-            {topic.slug}
-          </Link>
+          <Nav.Item key={topic.slug}>
+            <LinkContainer
+              to={"/articles/topics/" + topic.slug}
+
+              style={{ color: "white" }}
+            >
+              <Nav.Link>
+                {topic.slug[0].toUpperCase() + topic.slug.slice(1)}
+              </Nav.Link>
+            </LinkContainer>
+          </Nav.Item>
         );
       })}
     </>
