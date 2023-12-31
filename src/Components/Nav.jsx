@@ -1,18 +1,35 @@
 import { Link } from "react-router-dom";
 import TopicsBar from "./TopicsBar";
+import Navbar from "react-bootstrap/Navbar"
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import { LinkContainer } from "react-router-bootstrap";
 
-const Nav = () => {
+const Navigation = () => {
   return (
-    <nav>
-      <Link to="/" className="links">
-        Home
-      </Link>
-      <Link to="/articles" className="links">
-        Articles
-      </Link>
-      <TopicsBar />
-    </nav>
+    <Navbar
+      bg="secondary"
+      data-bs-theme="light"
+      sticky="top"
+      variant="light"
+    >
+      <Container className="justify-content-center">
+        <Nav variant="underline">
+          <Nav.Item>
+            <LinkContainer to="/" style={{ color: "white" }}>
+              <Nav.Link>Home</Nav.Link>
+            </LinkContainer>
+          </Nav.Item>
+          <Nav.Item>
+            <LinkContainer to="/articles" style={{ color: "white" }}>
+              <Nav.Link>Articles</Nav.Link>
+            </LinkContainer>
+          </Nav.Item>
+          <TopicsBar />
+        </Nav>
+      </Container>
+    </Navbar>
   );
 };
 
-export default Nav;
+export default Navigation;

@@ -4,6 +4,7 @@ import CommentCard from "./CommentCard";
 import Collapsible from "./Collapsible";
 import PostComment from "./PostComment";
 import ErrorHandling from "./ErrorHandling";
+import Card from "react-bootstrap/Card"
 
 const CommentsList = ({ article_id }) => {
   const [commentsList, setCommentsList] = useState([]);
@@ -36,8 +37,8 @@ const CommentsList = ({ article_id }) => {
     return (
       <>
         <Collapsible>
-          <h3>Comments:</h3>
-          <p>{commentsList.length === 0 ? "Be the first to comment!" : ""}</p>
+          <Card.Title>Comments:</Card.Title>
+          <Card.Subtitle>{commentsList.length === 0 ? "Be the first to comment!" : ""}</Card.Subtitle>
           <PostComment
             article_id={article_id}
             setCommentsList={setCommentsList}

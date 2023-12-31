@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import getAllArticles from "../api";
-import { Link } from "react-router-dom";
 import ArticleCard from "./ArticleCard";
 import ErrorHandling from "./ErrorHandling";
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 
 const ArticleHome = () => {
   const [articlesList, setArticlesList] = useState([]);
@@ -59,16 +60,17 @@ const ArticleHome = () => {
         <main>
           <h2>Newest</h2>
           <ArticleCard multipleArticles={limitedArticles} />
-          <Link to="/articles">
-            <button>All Articles</button>
-          </Link>
+          <Row xs={1} md={2}>
+            <Col >
+              <h2>Most Commented:</h2>
+              <ArticleCard multipleArticles={[...mostCommentedArticle]} />
+            </Col>
+            <Col >
+              <h2>Most Liked:</h2>
+              <ArticleCard multipleArticles={[...mostLikedArticle]} />
+            </Col>
+          </Row>
         </main>
-        <section>
-          <h2>Most Commented:</h2>
-          <ArticleCard multipleArticles={[...mostCommentedArticle]} />
-          <h2>Most Liked:</h2>
-          <ArticleCard multipleArticles={[...mostLikedArticle]} />
-        </section>
       </>
     );
     }
