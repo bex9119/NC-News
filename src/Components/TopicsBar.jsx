@@ -16,10 +16,9 @@ const TopicsBar = () => {
     <>
       {topics.map((topic) => {
         return (
-          <Nav.Item key={topic.slug}>
+          <Nav.Item key={topic.slug} style={{ marginRight: -15 }}>
             <LinkContainer
               to={"/articles/topics/" + topic.slug}
-
               style={{ color: "white" }}
             >
               <Nav.Link>

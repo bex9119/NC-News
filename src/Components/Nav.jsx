@@ -12,22 +12,21 @@ const Navigation = () => {
       data-bs-theme="light"
       sticky="top"
       variant="light"
+      className="justify-content-center"
     >
-      <Container className="justify-content-center">
-        <Nav variant="underline">
-          <Nav.Item>
+        <Nav variant="underline" className="justify-content-center">
+          <Nav.Item style={{ marginRight: -10 }}>
             <LinkContainer to="/" style={{ color: "white" }}>
               <Nav.Link>Home</Nav.Link>
             </LinkContainer>
           </Nav.Item>
-          <Nav.Item>
+          <Nav.Item style={{ marginRight: -15 }}>
             <LinkContainer to="/articles" style={{ color: "white" }}>
               <Nav.Link>Articles</Nav.Link>
             </LinkContainer>
           </Nav.Item>
           <TopicsBar />
         </Nav>
-      </Container>
     </Navbar>
   );
 };
